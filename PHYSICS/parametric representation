@@ -1,0 +1,13 @@
+import matplotlib.pyplot as plt
+import numpy as np  # For math functions
+
+t = np.linspace(0, 2*np.pi, 100)  # Parameter t from 0 to 2π, 100 points
+x = 0 + 1*t  # x as function of t
+y = 1 + t  # y as function of t
+
+plt.plot(x, y)  # Plot the curve
+plt.title('Parametric Circle')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.axis('equal')  # Keep it round
+plt.show()
