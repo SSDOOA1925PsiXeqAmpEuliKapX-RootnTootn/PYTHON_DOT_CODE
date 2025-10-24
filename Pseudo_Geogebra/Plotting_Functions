@@ -1,0 +1,25 @@
+# Import Matplotlib's plotting module
+import matplotlib.pyplot as plt
+import numpy as np  # For creating arrays of numbers
+
+# Create data for the graph
+x = np.linspace(-10, 10, 100, -100)  # 100 points from -5 to 5
+
+# Below is the formula for whatever function you want to plot:
+# _______________________________
+
+y = x**2 - 4*x
+
+# _______________________________
+# _______________________________
+
+# Set up the plot
+plt.plot(x, y, label='y = x^2')  # Plot line with label
+plt.title('Quadratic Function')  # Graph title
+plt.xlabel('x')  # X-axis label
+plt.ylabel('y')  # Y-axis label
+plt.grid(True)  # Add grid
+plt.legend()  # Show legend
+
+# Display the plot
+plt.show()
