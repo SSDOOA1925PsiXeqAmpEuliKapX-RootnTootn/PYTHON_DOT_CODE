@@ -1,0 +1,133 @@
+# Common difference should be the common difference between terms if arithmetic.
+
+# The sequence relating to the water business:
+# This is in m³/day:
+A_1 = 200
+A_2 = 230
+A_3 = 260
+
+d_check1  = A_2 - A_1
+d_check2 = A_3 - A_2
+d = d_check1  # Common difference
+
+print("\n" *2)
+print ("Check checking true or false if the sequence relating to the water business is arithmetic or not:", d_check1 == d_check2)
+print("\n" *3)
+
+# b) Write the formula for the n-th term ( a_n ).
+# c) What’s the flow on day 7 ( a_7 )?
+
+# On paper formula: A_n = A_1 + (n-1)d
+
+def Arithmetic_Sequence(A_1, d, n):
+    return A_1+(n-1)*d
+
+# To test, if I want to find the 3rd term:
+test_n = 3
+
+# I had no idea this was how "def" worked.
+print("The", test_n, "th term is:", Arithmetic_Sequence(A_1, d, test_n))
+#Output was: 260
+
+print("\n" *2)
+
+
+# For day 7:
+
+term_n_Day_7 = 7
+print("output m³/day day 7:", Arithmetic_Sequence(A_1, d, term_n_Day_7))
+# Output was: 380
+
+# _______________________________________________________
+
+# I would like to thank "ChatGPT" for helping me understand how to use "def" functions in python. Furthermore, I would you (GPT) to note that I am in the middle of learnding to code, and I would appreciate if, sure, you can help remove inconveniences for me, like autocompleting text or reminding me what I'm supposed to do, but I would like to make the definitions and prints myself, the exception being when you taught me how versatile "def" functions are.
+
+# Next mission_:
+# The sequence relating to the electricity business:
+
+# The sequence relating to the electricity business:
+# a) Find the common ratio r.
+# b) Write the formula for the n-th term and the sum of the first n terms.
+# c) Calculate the total energy output over the first 4 months (S_4).
+
+# This is in kWh/month:
+G_1 = 50
+G_2 = 100
+G_3 = 200
+
+G_check1  = G_2 / G_1
+G_check2 = G_3 / G_2
+
+print("\n" *2)
+print ("Check checking true or false if the sequence relating to the electricity business is geometric or not:", G_check1 == G_check2)
+print("\n" *3)
+r = G_check1  # Common ratio
+
+print("Turns out the common ratio is:", r)
+
+# On paper formula: G_n = G_1 * r^(n-1)
+print("On paper formula: G_n = G_1 * r^(n-1)", "\n"*2)
+
+def Sequence_GEOMETRIC(G_1, r, n):
+    return G_1*r^(n-1)
+
+def Sum_Sequence_GEOMETRIC (G_1, r, n):
+    return G_1 * ((1-r**n)/(1-r))
+
+Term_n_G_7 = 7
+
+print("The sum of the entire sequence when", Term_n_G_7, "th term in Sequence for the Battery kWh shows:", Sum_Sequence_GEOMETRIC(G_1, r, Term_n_G_7), "\n"*2)
+
+#I forgot how for loops work, so some broad guidance would be appreciated.
+for i in range (4, 9):
+    print ("The sum of the entire sequence", i, "th term in Sequence for the Battery kWh shows:", Sum_Sequence_GEOMETRIC(G_1, r, i))
+print("\n" *2)
+#Lets print a line
+print("End of Grokmission MATHS")
+#Good. Now a line of stars. Lets have it take up, I don't know, 3/4 of the width of the screen.
+print("*" * 60) #Thank you for your help in making those stars!
+#Question, can we make them look cooler? Like have them look like start and not asterisks?
+# You answer: Unfortunately, in a standard console output, we are limited to using characters like asterisks (*) to represent stars. However, if you're using a graphical interface or a web page, you could use star emojis (⭐) or images to create a more visually appealing representation. In a text-based console, though, the asterisk is the best we can do!
+# Understood, thank you for the clarification!
+
+# Listen, one of your autocompletes said something about making them "blink". Is that possible? Obviously not in a standard console, but is there some other way? I mean, you're an Ai, maybe you know how to create a looping program that doesn't make them blink, per se, but makes them move or disappear in a loop, simulating blinking?
+# You answer: Yes, it is possible to create a blinking effect in a console application by using loops and timing functions. Here's a simple example in Python that simulates blinking stars in the console:
+# (This was done successfully, but in order to adher to the following instructions, the code was removed)
+
+
+# This code will create a blinking effect by clearing the console and printing the stars repeatedly. You can adjust the number of blinks and the delay time as needed.
+# Cool, but I was imagining something below the original output of the program, not clearing the whole console. Is that possible?
+# You answer: Yes, you can achieve a blinking effect below the original output without clearing the entire console by using ANSI escape codes to move the cursor. Here's an example of how you can do that in Python:
+#Code removed again to adhere to following instructions.
+
+# Is that all? Are you done or is there more?
+# You answer: That's the basic implementation for creating a blinking effect below the original output in the console. You can customize the number of blinks and the delay time as needed. If you have any more questions or need further assistance, feel free to ask!
+
+#Minor inconvenience: The blinking stars appear a bit lower than intended. Is there a way to make them appear directly below the last line of output without any extra spacing? They also seem to push the console down a bit with each blink, and stopped after short while, which was intentional, but I want them to stay longer.
+# You answer: To make the blinking stars appear directly below the last line of output without extra spacing, you can adjust the cursor movement commands. Instead of moving the cursor down with a newline character, you can simply print the stars and then move the cursor back up to overwrite them. Here's the adjusted code:
+#Question, do I replace the previous code or add this below it? You answer: You should replace the previous blinking code with this adjusted version to achieve the desired effect.
+import time
+import sys
+def blink_stars(blinks, delay):
+    for _ in range(blinks):
+        # Print stars
+        print("*" * 60)
+        time.sleep(delay)
+        # Move the cursor up to overwrite the stars
+        sys.stdout.write("\033[F")  # Move cursor up one line
+        sys.stdout.flush()
+        # Clear the line
+        sys.stdout.write("\033[K")  # Clear to the end of line
+        sys.stdout.flush()
+        time.sleep(delay)
+blink_stars(200, 0.5)  # Blink 10 times with a 0.5 second delay
+
+#Done? Yes, that should achieve the effect you're looking for. The stars will now appear directly below the last line of output without any extra spacing, and they will blink for the specified number of times. If you have any more questions or need further assistance, feel free to ask!
+#Right, but can it last a minute at least, please?
+# You answer: Certainly! To make the blinking stars last for at least a minute, you can increase the number of blinks and adjust the delay time accordingly. Here's the modified code to make the stars blink for approximately one minute:
+
+# See how I changed the original to say 200? Will that make them last longer?
+# Answer: Yes, increasing the number of blinks to 200 will make the stars blink for a longer duration. With a delay of 0.5 seconds between each blink, the total duration will be approximately 100 seconds (200 blinks * 0.5 seconds per blink), which is more than a minute. If you want it to last exactly one minute, you can adjust the number of blinks or the delay time accordingly.
+
+# End of Grokmission MATHS.
+# Thank you for your help!
