@@ -1,0 +1,80 @@
+# Hello. Can you tell me which Ai is helping me right now?
+# Answer: You are currently interacting with ChatGPT, an AI language model developed by OpenAI.
+# Thank you. :)
+
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+# Solution Area: [0, 2π]
+
+math.sin(x) = 1/2
+
+print(math.asin(math.sin(x)), math.asin(1/2))
+
+# How easy is it to create a graph or an image that shows the unit circle, with a few lines with the coordinates of the most common angles marked on it?
+# Answer: (I saw your answer)
+#Thank you, but I meant how many lines of code, and can you generate it right now?
+# Answer: Sure! Here is a simple example of how to create a unit circle with marked angles using Python and the Matplotlib library. This code will generate a graph showing the unit circle and the coordinates of common angles.
+
+# Due to issue mentioned, the code has been removed and replaced with the corrected version below.
+
+# This code will create a unit circle and mark the angles in radians around it. You can run this code in a Python environment with Matplotlib and NumPy installed to see the graph.
+# The code is successfull. Good.
+# Problem: I wanted to see real values, as in square roots and fractions and stuff, also, I was hoping to see the angles.
+# Answer: Understood! Here is an updated version of the code that includes the exact values (like square roots and fractions) for the common angles on the unit circle.
+
+# Code has been updated below.
+
+# This code will create a unit circle and mark the angles in radians along with their exact coordinate values. You can run this code in a Python environment with Matplotlib and NumPy installed to see the graph.
+
+# Perfect! Now, I was hoping to focus on the upper right quadrant, and to see the angles as well as the coordinates.
+# Answer: Certainly! Below is a modified version of the code that focuses on the upper right quadrant of the unit circle, displaying both the angles in radians and their corresponding coordinates.
+
+# Code has been updated below.
+
+# This code will create a graph focusing on the upper right quadrant of the unit circle, marking the angles in radians along with their exact coordinate values. You can run this code in a Python environment with Matplotlib and NumPy installed to see the graph.
+# Can we see the angles in real radians, not decial approximations?
+# Answer: Certainly! Below is the modified code that displays the angles in real radians (using π notation) along with their corresponding coordinates in the upper right quadrant of the unit circle.
+
+# Code has been updated below.
+
+# This code will create a graph focusing on the upper right quadrant of the unit circle, marking the angles in radians using π notation along with their exact coordinate values. You can run this code in a Python environment with Matplotlib and NumPy installed to see the graph.
+
+# It still shows decimal approximations for the angles. Can you fix that?
+# Answer: Apologies for the oversight. Below is the corrected code that ensures the angles are displayed in exact radians (using π notation) without decimal approximations.
+import numpy as np
+import matplotlib.pyplot as plt
+# Create a unit circle
+theta = np.linspace(0, np.pi/2, 100)
+x = np.cos(theta)
+y = np.sin(theta)   
+plt.figure(figsize=(6,6))
+plt.plot(x, y, label='Unit Circle (Upper Right Quadrant)')
+# Mark common angles with exact values in the upper right quadrant
+angles = {0: '(1, 0)',  
+          np.pi/6: '(√3/2, 1/2)',  
+          np.pi/4: '(√2/2, √2/2)',  
+          np.pi/3: '(1/2, √3/2)',  
+          np.pi/2: '(0, 1)'}
+for angle, coord in angles.items():
+    plt.plot([0, np.cos(angle)], [0, np.sin(angle)], 'r--')
+    if angle == 0:
+        angle_label = '0'
+    elif angle == np.pi/2:
+        angle_label = 'π/2'
+    else:
+        angle_label = f'{int(angle/ (np.pi/6))}π/6' if angle % (np.pi/6) == 0 else f'{int(angle/ (np.pi/4))}π/4' if angle % (np.pi/4) == 0 else f'{int(angle/ (np.pi/3))}π/3'
+    plt.text(np.cos(angle)*1.1, np.sin(angle)*1.1, f'{angle_label}\n{coord}', ha='center', va='center')
+# Set aspect of the plot to be equal
+plt.gca().set_aspect('equal', adjustable='box')
+plt.xlim(0, 1.5)
+plt.ylim(0, 1.5)
+plt.axhline(0, color='black',linewidth=0.5, ls='--')
+plt.axvline(0, color='black',linewidth=0.5, ls='--')
+plt.title('Unit Circle (Upper Right Quadrant) with Common Angles and Exact Values')
+plt.grid()
+plt.legend()
+plt.show()              
+# This code will create a graph focusing on the upper right quadrant of the unit circle, marking the angles in exact radians using π notation along with their exact coordinate values. You can run this code in a Python environment with Matplotlib and NumPy installed to see the graph.
