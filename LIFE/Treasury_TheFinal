@@ -6,7 +6,7 @@
 # We do not speak of February 28. Only 29. Twice. For reasons.
 
 THE_DAILY_NUMBER = 649
-DAYS_IT_ACCUMULATES_PER_WEEK = 4   # 1–7, you control the pain
+DAYS_IT_ACCUMULATES_PER_WEEK = 5   # 1–7, you control the pain
 
 # Monthly rules — because reality is a lie
 DAYS_IN_BUDGET_MONTH  =  30        # We pretend every month has 30 days when budgeting
@@ -109,6 +109,6 @@ print("Go forth.")
 print("\n"*4, "A slightly more realistic service:")
 BCUT_ONE=single_budget_month_total  -  8000
 
-print(f"CUT_ONE, the living constant. Here's what's left: {BCUT_ONE} \n")
+print(f"CUT_ONE, the living constant. Here's what's left: {BCUT_ONE} (per month)\n")
 unknown=0
 BCUT_2 = BCUT_ONE  -  unknown
