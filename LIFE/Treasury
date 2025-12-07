@@ -37,7 +37,7 @@
 
 
 THE_DAILY_NUMBER =          649 # THE NUMBER FOR THE DAY THAT WILL PROCCEED TO POTENTIALLY BE ACCUMULATIVE
-ACCUMULATION_PER_WEEK =     1   # Must be between 1 to 7. NUMBER OF TIMES DAILY_NUMBER WILL BE ACCUMULATED
+ACCUMULATION_PER_WEEK =     4   # Must be between 1 to 7. NUMBER OF TIMES DAILY_NUMBER WILL BE ACCUMULATED
 
 
 #setting variables:
@@ -48,14 +48,53 @@ accumulationperWEEK = ACCUMULATION_PER_WEEK #In all likelihood, I want to put th
 #    turns out, the number acculumates for a certain number of days
 #    then the weeks can accumulate for an entire year (let's remove febuary, but let's also add an extra febuary when taxed)
 
-a = dailynumber
-for accumulationperWEEK in (0, accumulationperWEEK):
-    if accumulationperWEEK == 1:
-        print("Fuck that shit. No numbers for you!")
-        break
-    else:
-        break
+#######################################################################################################
+#######################################################################################################
 
-b = dailynumber*1
+#ØØÅ My own Treasury accumulator – v0.1 – built from the void
 
-print(b)
+THE_DAILY_NUMBER = 649                    # One number rules the day
+DAYS_IT_ACCUMULATES_PER_WEEK = 5          # Change this 1–7 to control the magic
+
+BUDGET_MONTH_NUMBER_IT_ACCUMULATES_IN_A_MONTH = THE_DAILY_NUMBER * 30
+BUDGET_MONTH_AMOUNT_OF_MONTHS_IN_A_YEAR = 11
+
+# --- The actual accumulation engine ---
+accumulation_runningtreasury_inaWEEK = 0                                 # Running treasury
+total = accumulation_runningtreasury_inaWEEK
+
+for day in range(DAYS_IT_ACCUMULATES_PER_WEEK):
+    if DAYS_IT_ACCUMULATES_PER_WEEK == 1:
+        total += THE_DAILY_NUMBER
+        print("Fuck that shit. No numbers for you!", "\n", "By the way, the accumulation is", total)
+        break
+    total += THE_DAILY_NUMBER             # Every day it stacks
+    print(f"Day {day+1}: +{THE_DAILY_NUMBER} → total = {total}")
+
+print(f"\nAfter one week: {total}")       # One week complete
+
+b = THE_DAILY_NUMBER*DAYS_IT_ACCUMULATES_PER_WEEK
+
+print(f"Control value (Gain after one week): {b}")
+
+# # --- Lastly, The engine of years of accumulation ---
+# There are 30.5 +- 0.5 days in a month. There are 11 months in a year with an additional 29 day month.
+# The value for months when making budget: 30.5 - 0.5, and we don't count the 29 day month. In fact, we decided the 29 day month was 29 and not 28 in order to prep it for the second value.               30 times 11
+# The value  for months when reporting budget: 30.5 + 0.5 (note, changed to 30.5 - 0.5, like Budgetmonths), and we count the 29 day month.                                                  This shows value of days (REPORTING) :  30 times 11  +  29 times 2
+
+# Idea: Find Budget after one year (11 BUDGET MONTHS)
+
+# Idea: Find Report after one year (11 REPORT MONTHS + 2 Febuary months)
+
+# Last idea: For completeness, I also want to have one that is just for one month.
+
+# # --- BUDGET MONTHS, The engine of years of accumulation ---
+print("\n"*3)
+BUDGET_RUNNING_TREASURY_PERYEAR_IN_BUDGET_MONTHS = 0
+for budgetmonths in range(BUDGET_MONTH_AMOUNT_OF_MONTHS_IN_A_YEAR):
+    BUDGET_RUNNING_TREASURY_PERYEAR_IN_BUDGET_MONTHS += BUDGET_MONTH_NUMBER_IT_ACCUMULATES_IN_A_MONTH
+    print(f"Month {budgetmonths+1}: +{BUDGET_MONTH_NUMBER_IT_ACCUMULATES_IN_A_MONTH} → total = {BUDGET_RUNNING_TREASURY_PERYEAR_IN_BUDGET_MONTHS}")
+
+b = BUDGET_MONTH_NUMBER_IT_ACCUMULATES_IN_A_MONTH*BUDGET_MONTH_AMOUNT_OF_MONTHS_IN_A_YEAR
+
+print(f"Control value (Budgetgain after one year): {b}")
