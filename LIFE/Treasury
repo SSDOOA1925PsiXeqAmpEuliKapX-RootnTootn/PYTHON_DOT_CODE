@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+#"""
+#Simple accumulator:
+#A given number is relevant for one day and is added to the running total
+#for five days each week. Run and enter the daily value and number of weeks.
+#"""
+#def simulate(daily_value: float, weeks: int = 1) -> float:
+#    days_per_week = 5
+#    total = 0.0
+#    for week in range(1, weeks + 1):
+#        week_sum = 0.0
+#        for day in range(1, days_per_week + 1):
+#            total += daily_value
+#            week_sum += daily_value
+#        print(f"Week {week}: added {week_sum} (daily {daily_value} x {days_per_week}) -> running total {total}")
+#    return total
+#
+#def main():
+#    try:
+#        daily = float(input("Enter the daily number: ").strip())
+#    except ValueError:
+#        print("Invalid number.")
+#        return
+#    weeks_input = input("Enter number of weeks (default 1): ").strip()
+#    weeks = int(weeks_input) if weeks_input else 1
+#    final = simulate(daily, weeks)
+#    print(f"Final total after {weeks} week(s): {final}")
+
+#if __name__ == "__main__":
+#    main()
+
+
+#ØØÅ Hello GPT. I am ØØÅ, the human operator. I look forward to your help! In order to best collaborate, I think it is useful if we have a way to talk. I am able to write "#ØØÅ (text)" please take advantage of this too.
+#GPT Hello ØØÅ! I'm excited to collaborate with you. Feel free to use the "#ØØÅ (text)" format whenever you want to communicate directly with me. How can I assist you further with this code or any other task?
+
+#ØØÅ right now, as a challenge to myself, and because I'm struggling to understand what you wrote in the above code, I want to try and create my own version of the code.
+
+
+THE_DAILY_NUMBER =          649 # THE NUMBER FOR THE DAY THAT WILL PROCCEED TO POTENTIALLY BE ACCUMULATIVE
+ACCUMULATION_PER_WEEK =     1   # Must be between 1 to 7. NUMBER OF TIMES DAILY_NUMBER WILL BE ACCUMULATED
+
+
+#setting variables:
+dailynumber = THE_DAILY_NUMBER
+accumulationperWEEK = ACCUMULATION_PER_WEEK #In all likelihood, I want to put this in a for loop. For i in (1, i) where i is acc.
+
+#idea: a certain number is relevant for one single day at a time
+#    turns out, the number acculumates for a certain number of days
+#    then the weeks can accumulate for an entire year (let's remove febuary, but let's also add an extra febuary when taxed)
+
+a = dailynumber
+for accumulationperWEEK in (0, accumulationperWEEK):
+    if accumulationperWEEK == 1:
+        print("Fuck that shit. No numbers for you!")
+        break
+    else:
+        break
+
+b = dailynumber*1
+
+print(b)
